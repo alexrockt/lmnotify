@@ -86,6 +86,10 @@ DEVICE_URLS = {
     # execute an action
     "do_action": (
         "POST", "https://%s:4343/api/v2/device/apps/%s/widgets/%s/action"
+    ),
+    # screensaver app - uses api v1
+    "screensaver": (
+        "PUT", "https://%s/api/v1/screensaver"
     )
 }
 

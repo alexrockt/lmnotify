@@ -448,3 +448,14 @@ class LaMetricManager(object):
 
     def stopwatch_reset(self):
         self._app_exec("com.lametric.stopwatch", "stopwatch.reset")
+    
+    def screensaver_toggle(self):
+        payload = self.get_display()['screensaver']
+        
+        current_status = payload['enabled']
+        target_status = not current_status
+        
+        payload['enabled'] = target_status
+        
+        cmd, url = DEVICE_URLS["screensaver"]
+        self.result = self._exec(cmd, url, json_data=payload)
